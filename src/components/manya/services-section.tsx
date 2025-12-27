@@ -6,6 +6,10 @@ import {
   Users,
   Bot,
   Layers,
+  Component,
+  Database,
+  PencilRuler,
+  MousePointerClick
 } from 'lucide-react';
 import Link from 'next/link';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -19,7 +23,7 @@ const services = [
         description: "Posicionamiento orgánico con estrategias basadas en datos e IA.",
     },
     {
-        icon: Globe,
+        icon: PencilRuler,
         title: "Diseño Web",
         description: "Sitios web que convierten, diseñados para la experiencia del usuario.",
     },
@@ -29,7 +33,7 @@ const services = [
         description: "Community management estratégico que genera engagement real.",
     },
     {
-        icon: Bot,
+        icon: MousePointerClick,
         title: "Performance Marketing",
         description: "Meta Ads y Google Ads optimizados con machine learning.",
     },
@@ -39,7 +43,7 @@ const services = [
         description: "Gestión inteligente de clientes que maximiza el lifetime value.",
     },
     {
-        icon: Layers,
+        icon: Component,
         title: "Automatizaciones",
         description: "Workflows inteligentes con IA que escalan tu operación.",
     },
@@ -55,6 +59,14 @@ export function ServicesSection() {
   return (
     <section id="servicios" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
+        <div className="mb-12 text-center">
+            <h2 className="font-headline text-3xl font-bold md:text-4xl">
+              Nuestros Servicios
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
+              Soluciones integrales para llevar tu negocio al siguiente nivel.
+            </p>
+        </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
             const Icon = service.icon;
