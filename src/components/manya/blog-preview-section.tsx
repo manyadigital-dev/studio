@@ -8,7 +8,7 @@ export function BlogPreviewSection() {
   const latestPosts = blogPosts.slice(0, 3);
 
   return (
-    <section id="blog" className="py-16 md:py-24 bg-secondary/50">
+    <section id="blog" className="py-16 md:py-24 bg-secondary/30">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-12 text-center">
           <h2 className="font-headline text-3xl font-bold md:text-4xl">
@@ -21,7 +21,7 @@ export function BlogPreviewSection() {
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {latestPosts.map((post) => (
-            <Card key={post.slug} className="overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl bg-card">
+            <Card key={post.slug} className="overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl bg-card border-border/50">
               <Link href={`/blog#${post.slug}`} className="block group">
                 <div className="relative h-48 w-full">
                   <Image

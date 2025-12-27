@@ -1,13 +1,10 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { motion } from 'framer-motion';
 
 export function HeroSection() {
-  const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-background');
   const [offsetY, setOffsetY] = useState(0);
   const handleScroll = () => setOffsetY(window.pageYOffset);
 
@@ -17,42 +14,62 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative h-[85vh] min-h-[600px] w-full overflow-hidden md:h-screen">
-      <div className="absolute inset-0 z-0">
-        {heroImage && (
-          <motion.div 
-            className="absolute inset-0"
-            style={{ y: offsetY * 0.3 }}
-          >
-            <Image
-              src={heroImage.imageUrl}
-              alt={heroImage.description}
-              fill
-              className="object-cover"
-              priority
-              data-ai-hint={heroImage.imageHint}
-            />
-          </motion.div>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-white/70 to-transparent"></div>
+    <section className="relative h-[90vh] min-h-[700px] w-full overflow-hidden flex items-center justify-center bg-background">
+       <div className="absolute inset-0 z-0 opacity-15">
+        <motion.div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(244,81,30,0.2),_transparent_40%)]"
+          style={{ y: offsetY * 0.3 }}
+          animate={{
+            scale: [1, 1.05, 1],
+            opacity: [0.5, 0.7, 0.5],
+            transformOrigin: "center",
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "mirror",
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute top-[10%] left-[5%] h-32 w-32 rounded-full bg-primary/20 blur-2xl"
+          style={{ y: offsetY * 0.5 }}
+          animate={{ y: [0, -20, 0], x: [0, 10, 0] }}
+          transition={{ duration: 15, repeat: Infinity, repeatType: "mirror" }}
+        ></motion.div>
+        <motion.div
+          className="absolute bottom-[15%] right-[10%] h-40 w-40 rounded-full bg-accent/20 blur-2xl"
+          style={{ y: offsetY * 0.2 }}
+           animate={{ y: [0, 20, 0], x: [0, -10, 0] }}
+          transition={{ duration: 18, repeat: Infinity, repeatType: "mirror", delay: 3 }}
+        ></motion.div>
+         <motion.div
+          className="absolute top-[20%] right-[20%] h-24 w-24 border-2 border-primary/30 rounded-full"
+          style={{ y: offsetY * 0.4 }}
+           animate={{ rotate: [0, 360] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        ></motion.div>
       </div>
-      <div className="container relative z-10 flex h-full flex-col items-center justify-center text-center text-foreground md:items-start md:text-left">
-        <motion.div 
-          className="max-w-3xl"
+      <div className="container relative z-10 flex flex-col items-center justify-center text-center text-foreground">
+        <motion.div
+          className="max-w-4xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <h1 className="font-bold text-4xl leading-tight drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
-            Llevamos tu Marca al Siguiente Nivel Digital
+          <h1 className="font-headline text-5xl font-bold leading-tight drop-shadow-sm md:text-6xl lg:text-7xl">
+            Manyamos tu Crecimiento Digital
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground drop-shadow-md md:text-xl">
-            Estrategias de marketing innovadoras para que tu negocio se destaque
-            en el mercado argentino.
+          <p className="mt-6 max-w-2xl mx-auto text-lg text-muted-foreground md:text-xl">
+            Agencia de marketing digital impulsada por IA. Innovación real desde
+            Argentina para el mundo.
           </p>
-          <Button asChild size="lg" className="mt-10 bg-gradient-to-r from-primary to-accent text-lg font-bold text-primary-foreground transition-transform duration-300 ease-in-out hover:scale-105 shadow-lg hover:shadow-primary/40 rounded-full px-8 py-6">
-            <Link href="#contacto">Hablemos de tu Proyecto</Link>
+          <Button
+            asChild
+            size="lg"
+            className="mt-10 bg-gradient-to-r from-primary to-accent text-lg font-bold text-primary-foreground transition-transform duration-300 ease-in-out hover:scale-105 shadow-lg hover:shadow-primary/40 rounded-full px-8 py-6"
+          >
+            <Link href="#contacto">Hablemos de tu proyecto</Link>
           </Button>
         </motion.div>
       </div>

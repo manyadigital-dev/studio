@@ -36,10 +36,10 @@ import { Loader2, Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const contactFormSchema = z.object({
-  name: z.string().min(2, 'Che, necesitamos tu nombre'),
-  email: z.string().email('Ese email no parece válido, probá de nuevo'),
+  name: z.string().min(2, 'Che, necesitamos tu nombre.'),
+  email: z.string().email('Ese email no parece válido, probá de nuevo.'),
   serviceOfInterest: z.string().optional(),
-  question: z.string().min(10, 'Dale, contanos un poco más (al menos 10 caracteres)'),
+  question: z.string().min(10, 'Dale, contanos un poco más (al menos 10 caracteres).'),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -74,7 +74,7 @@ export function ContactSection() {
   return (
     <motion.section 
       id="contacto" 
-      className="py-24 md:py-32 bg-background"
+      className="py-24 md:py-32 bg-secondary/30"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -82,7 +82,7 @@ export function ContactSection() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-16 text-center">
-          <h2 className="font-bold text-4xl md:text-5xl">
+          <h2 className="font-headline font-bold text-4xl md:text-5xl">
             Contactanos
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-muted-foreground md:text-lg">
@@ -93,7 +93,7 @@ export function ContactSection() {
           <div className="lg:col-span-2 space-y-10">
              <Card className="bg-card border-border/50 transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/10">
                 <CardHeader>
-                    <CardTitle className="font-bold">Info de Contacto</CardTitle>
+                    <CardTitle className="font-headline font-bold">Info de Contacto</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6 text-muted-foreground">
                     <div className="flex items-start gap-4">
@@ -110,7 +110,7 @@ export function ContactSection() {
                     </div>
                 </CardContent>
              </Card>
-             <div className="overflow-hidden rounded-xl shadow-lg transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/20">
+             <div className="overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/20">
                 {mapImage && <Image src={mapImage.imageUrl} alt="Ubicación" width={600} height={450} className="w-full" data-ai-hint={mapImage.imageHint} />}
              </div>
           </div>

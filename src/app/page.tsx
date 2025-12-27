@@ -1,19 +1,17 @@
 import { HeroSection } from '@/components/manya/hero-section';
 import { ServicesSection } from '@/components/manya/services-section';
-import { SuccessCasesSection } from '@/components/manya/success-cases-section';
-import { TestimonialsSection } from '@/components/manya/testimonials-section';
-import { BlogPreviewSection } from '@/components/manya/blog-preview-section';
-import { ContactSection } from '@/components/manya/contact-section';
+import { StatsSection } from '@/components/manya/stats-section';
+import { WhyUsSection } from '@/components/manya/why-us-section';
+import { FinalCtaSection } from '@/components/manya/final-cta-section';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <ServicesSection />
-      <SuccessCasesSection />
-      <TestimonialsSection />
-      <BlogPreviewSection />
-      <ContactSection />
+      <StatsSection />
+      <WhyUsSection />
+      <FinalCtaSection />
     </>
   );
 }

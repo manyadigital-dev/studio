@@ -11,7 +11,7 @@ const getImage = (id: string): { src: string; hint: string } => {
 
 export const navLinks = [
   { name: 'Servicios', href: '#servicios' },
-  { name: 'Casos de Éxito', href: '#casos-de-exito' },
+  { name: 'Por qué elegirnos', href: '#por-que-elegirnos' },
   { name: 'Blog', href: '/blog' },
   { name: 'Contacto', href: '#contacto' },
 ];
@@ -19,39 +19,36 @@ export const navLinks = [
 export const services = [
   {
     icon: 'TrendingUp',
-    title: 'SEO (Search Engine Optimization)',
+    title: 'SEO',
     description:
-      'Hacemos que tu marca aparezca primera en Google para que te encuentren clientes calificados, de forma orgánica y sostenida.',
+      'Posicionamiento orgánico con estrategias basadas en datos e IA.',
   },
   {
-    icon: 'MousePointerClick',
-    title: 'SEM (Search Engine Marketing)',
+    icon: 'Globe',
+    title: 'Diseño Web',
     description:
-      'Creamos y manejamos campañas de pago por clic (PPC) en Google Ads para generar tráfico y conversiones de una.',
+      'Sitios web que convierten, diseñados para la experiencia del usuario.',
   },
   {
     icon: 'Share2',
-    title: 'Gestión de Redes Sociales',
+    title: 'Gestión de RRSS',
     description:
-      'Construimos y le damos vida a tu comunidad online, creando contenido que engancha, genera onda y fideliza a tu gente.',
+      'Community management estratégico que genera engagement real.',
   },
   {
-    icon: 'Mail',
-    title: 'Email Marketing',
-    description:
-      'Armamos campañas de email marketing personalizadas para nutrir contactos, tener informados a tus clientes y potenciar tus ventas.',
+    icon: 'Bot',
+    title: 'Performance Marketing',
+    description: 'Meta Ads y Google Ads optimizados con machine learning.',
   },
   {
-    icon: 'PenTool',
-    title: 'Marketing de Contenidos',
-    description:
-      'Producimos contenido de valor (blogs, videos, etc.) que posiciona a tu marca como referente y atrae a tu público.',
+    icon: 'Users',
+    title: 'CRM',
+    description: 'Gestión inteligente de clientes que maximiza el lifetime value.',
   },
   {
-    icon: 'BarChart3',
-    title: 'Analítica Web',
-    description:
-      'Medimos, analizamos y te contamos qué onda el rendimiento de tu web para optimizar tus estrategias y maximizar la guita que le ponés.',
+    icon: 'Layers',
+    title: 'Automatizaciones',
+    description: 'Workflows inteligentes con IA que escalan tu operación.',
   },
 ];
 
