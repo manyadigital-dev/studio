@@ -31,7 +31,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { analyzeContactQuestion } from '@/app/actions';
 import { services } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
@@ -47,7 +46,6 @@ const contactFormSchema = z.object({
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export function ContactSection() {
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const mapImage = PlaceHolderImages.find((p) => p.id === 'map');
@@ -61,37 +59,6 @@ export function ContactSection() {
       question: '',
     },
   });
-
-  const handleQuestionBlur = async () => {
-    const question = form.getValues('question');
-    if (question.length > 20) {
-      setIsAnalyzing(true);
-      try {
-        const result = await analyzeContactQuestion({ question });
-        if (result.success && result.data) {
-          const { name, email, serviceOfInterest, urgency } = result.data;
-          if (name && !form.getValues('name')) form.setValue('name', name);
-          if (email && !form.getValues('email')) form.setValue('email', email);
-          if (serviceOfInterest && !form.getValues('serviceOfInterest')) {
-            const matchedService = services.find((s) =>
-              s.title.toLowerCase().includes(serviceOfInterest.toLowerCase())
-            );
-            if (matchedService) {
-              form.setValue('serviceOfInterest', matchedService.title);
-            }
-          }
-          toast({
-            title: '¡Formulario inteligente activado!',
-            description: 'Hemos pre-completado algunos campos por vos.',
-          });
-        }
-      } catch (error) {
-        console.error('Error analyzing question:', error);
-      } finally {
-        setIsAnalyzing(false);
-      }
-    }
-  };
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     setIsSubmitting(true);
@@ -220,15 +187,8 @@ export function ContactSection() {
                             placeholder="Contanos sobre tu proyecto, objetivos y necesidades..."
                             className="min-h-[120px]"
                             {...field}
-                            onBlur={handleQuestionBlur}
                           />
                         </FormControl>
-                        {isAnalyzing && (
-                            <div className="flex items-center gap-2 text-sm text-muted-foreground pt-1">
-                                <Loader2 className="h-4 w-4 animate-spin"/>
-                                Analizando tu consulta...
-                            </div>
-                        )}
                         <FormMessage />
                       </FormItem>
                     )}

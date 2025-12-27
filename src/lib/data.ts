@@ -13,7 +13,6 @@ export const navLinks = [
   { name: 'Servicios', href: '#servicios' },
   { name: 'Casos de Éxito', href: '#casos-de-exito' },
   { name: 'Blog', href: '/blog' },
-  { name: 'Análisis Predictivo', href: '/analisis-predictivo' },
   { name: 'Contacto', href: '#contacto' },
 ];
 
