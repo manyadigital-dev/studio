@@ -9,11 +9,11 @@ import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, MoveRight } from 'lucide-react';
 
 const locations = [
-    { name: 'Buenos Aires (CABA)', href: '#' },
-    { name: 'Córdoba', href: '#' },
-    { name: 'Neuquén', href: '#' },
-    { name: 'Rosario', href: '#' },
-    { name: 'Mendoza', href: '#' },
+    { name: 'Buenos Aires (CABA)', href: '/buenos-aires' },
+    { name: 'Córdoba', href: '/cordoba' },
+    { name: 'Neuquén', href: '/neuquen' },
+    { name: 'Rosario', href: '/rosario' },
+    { name: 'Mendoza', href: '/mendoza' },
 ];
 
 export function LocationsSection() {
