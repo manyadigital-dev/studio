@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { blogPosts } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { ChevronRight, Clock, Calendar, User } from 'lucide-react';
+import { ChevronRight, Clock, Calendar } from 'lucide-react';
 import { FinalCtaSection } from '@/components/manya/final-cta-section';
 import { BlogSidebar } from '@/components/manya/blog-sidebar';
 
