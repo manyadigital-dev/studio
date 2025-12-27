@@ -18,7 +18,7 @@ export function TestimonialsSection() {
             Lo que Dicen Nuestros Clientes
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
-            La confianza y los resultados son nuestros pilares.
+            La confianza y los resultados son nuestros pilares. Hablan ellos.
           </p>
         </div>
         <Carousel
@@ -31,10 +31,10 @@ export function TestimonialsSection() {
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Card className="h-full">
+                <div className="p-1 h-full">
+                  <Card className="h-full flex flex-col transition-shadow duration-300 hover:shadow-lg">
                     <CardContent className="flex h-full flex-col justify-between p-6">
-                      <p className="mb-4 text-muted-foreground">
+                      <p className="mb-4 text-muted-foreground flex-grow">
                         &ldquo;{testimonial.quote}&rdquo;
                       </p>
                       <div className="flex items-center gap-4">
@@ -64,8 +64,8 @@ export function TestimonialsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex" />
-          <CarouselNext className="hidden sm:flex" />
+          <CarouselPrevious className="hidden sm:flex transition-transform duration-300 ease-in-out hover:scale-110" />
+          <CarouselNext className="hidden sm:flex transition-transform duration-300 ease-in-out hover:scale-110" />
         </Carousel>
       </div>
     </section>

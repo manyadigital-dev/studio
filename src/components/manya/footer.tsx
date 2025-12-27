@@ -20,30 +20,30 @@ export function Footer() {
           <div>
             <h3 className="mb-4 font-headline text-lg font-semibold">Navegación</h3>
             <ul className="space-y-2">
-              <li><Link href="#servicios" className="text-sm text-muted-foreground hover:text-primary">Servicios</Link></li>
-              <li><Link href="#casos-de-exito" className="text-sm text-muted-foreground hover:text-primary">Casos de Éxito</Link></li>
-              <li><Link href="/blog" className="text-sm text-muted-foreground hover:text-primary">Blog</Link></li>
-              <li><Link href="#contacto" className="text-sm text-muted-foreground hover:text-primary">Contacto</Link></li>
+              <li><Link href="#servicios" className="text-sm text-muted-foreground transition-colors duration-300 ease-in-out hover:text-primary">Servicios</Link></li>
+              <li><Link href="#casos-de-exito" className="text-sm text-muted-foreground transition-colors duration-300 ease-in-out hover:text-primary">Casos de Éxito</Link></li>
+              <li><Link href="/blog" className="text-sm text-muted-foreground transition-colors duration-300 ease-in-out hover:text-primary">Blog</Link></li>
+              <li><Link href="#contacto" className="text-sm text-muted-foreground transition-colors duration-300 ease-in-out hover:text-primary">Contacto</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="mb-4 font-headline text-lg font-semibold">Contacto</h3>
             <address className="not-italic space-y-2 text-sm text-muted-foreground">
               <p>Buenos Aires, Argentina</p>
-              <p><a href="mailto:hola@manyadigital.com" className="hover:text-primary">hola@manyadigital.com</a></p>
-              <p><a href="tel:+5491112345678" className="hover:text-primary">+54 9 11 1234-5678</a></p>
+              <p><a href="mailto:hola@manyadigital.com" className="transition-colors duration-300 ease-in-out hover:text-primary">hola@manyadigital.com</a></p>
+              <p><a href="tel:+5491112345678" className="transition-colors duration-300 ease-in-out hover:text-primary">+54 9 11 1234-5678</a></p>
             </address>
           </div>
           <div>
             <h3 className="mb-4 font-headline text-lg font-semibold">Seguinos</h3>
             <div className="flex space-x-4">
-              <Link href="#" className="text-muted-foreground hover:text-primary" aria-label="Facebook">
+              <Link href="#" className="text-muted-foreground transition-colors duration-300 ease-in-out hover:text-primary" aria-label="Facebook">
                 <Facebook className="h-6 w-6" />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary" aria-label="Instagram">
+              <Link href="#" className="text-muted-foreground transition-colors duration-300 ease-in-out hover:text-primary" aria-label="Instagram">
                 <Instagram className="h-6 w-6" />
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary" aria-label="LinkedIn">
+              <Link href="#" className="text-muted-foreground transition-colors duration-300 ease-in-out hover:text-primary" aria-label="LinkedIn">
                 <Linkedin className="h-6 w-6" />
               </Link>
             </div>

@@ -12,13 +12,13 @@ export function SuccessCasesSection() {
             Casos de Éxito
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
-            Resultados reales para clientes en Argentina. Así es como
+            Resultados posta para clientes en Argentina. Así es como
             transformamos negocios.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-3">
           {successCases.map((caseStudy) => (
-            <Card key={caseStudy.title} className="overflow-hidden transition-shadow duration-300 hover:shadow-2xl">
+            <Card key={caseStudy.title} className="overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl">
               <div className="relative h-48 w-full">
                 <Image
                   src={caseStudy.image.src}

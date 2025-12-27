@@ -21,7 +21,7 @@ export default function BlogPage() {
       <div className="container mx-auto px-4 py-16 md:px-6 md:py-24">
         <div className="mb-12 text-center">
           <h1 className="font-headline text-4xl font-bold md:text-5xl">
-            Blog de Manya Digital
+            Nuestro Rincón Digital
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
             Análisis, tendencias y consejos sobre el universo del marketing
@@ -34,7 +34,7 @@ export default function BlogPage() {
             <Card
               key={post.slug}
               id={post.slug}
-              className="flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl"
+              className="flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl"
             >
               <div className="relative h-56 w-full">
                 <Image

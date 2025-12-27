@@ -1,3 +1,4 @@
+'use client';
 import {
   TrendingUp,
   MousePointerClick,
@@ -8,6 +9,7 @@ import {
 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { services } from '@/lib/data';
+import { motion } from 'framer-motion';
 
 const iconMap: { [key: string]: React.ElementType } = {
   TrendingUp,
@@ -16,6 +18,11 @@ const iconMap: { [key: string]: React.ElementType } = {
   Mail,
   PenTool,
   BarChart3,
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
 };
 
 export function ServicesSection() {
@@ -32,25 +39,34 @@ export function ServicesSection() {
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => {
+          {services.map((service, index) => {
             const Icon = iconMap[service.icon];
             return (
-              <Card
+              <motion.div
                 key={service.title}
-                className="transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl"
+                custom={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={cardVariants}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               >
-                <CardHeader>
-                  {Icon && (
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                  )}
-                  <CardTitle>{service.title}</CardTitle>
-                  <CardDescription className="pt-2">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+                <Card
+                  className="h-full transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
+                >
+                  <CardHeader>
+                    {Icon && (
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                    )}
+                    <CardTitle>{service.title}</CardTitle>
+                    <CardDescription className="pt-2">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                </Card>
+              </motion.div>
             );
           })}
         </div>

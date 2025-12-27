@@ -4,11 +4,9 @@ import { useState } from 'react';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { motion } from 'framer-motion';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
@@ -35,12 +33,13 @@ import { services } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Loader2, Mail, MapPin, Phone } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const contactFormSchema = z.object({
-  name: z.string().min(2, 'Tu nombre es requerido'),
-  email: z.string().email('El email no es válido'),
+  name: z.string().min(2, 'Che, necesitamos tu nombre'),
+  email: z.string().email('Ese email no parece válido, probá de nuevo'),
   serviceOfInterest: z.string().optional(),
-  question: z.string().min(10, 'Tu mensaje debe tener al menos 10 caracteres'),
+  question: z.string().min(10, 'Dale, contanos un poco más (al menos 10 caracteres)'),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -62,7 +61,7 @@ export function ContactSection() {
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1500));
     setIsSubmitting(false);
 
     toast({
@@ -73,7 +72,14 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contacto" className="py-16 md:py-24 bg-background">
+    <motion.section 
+      id="contacto" 
+      className="py-16 md:py-24 bg-background"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-12 text-center">
           <h2 className="font-headline text-3xl font-bold md:text-4xl">
@@ -85,7 +91,7 @@ export function ContactSection() {
         </div>
         <div className="grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-2 space-y-8">
-             <Card>
+             <Card className="transition-shadow duration-300 hover:shadow-lg">
                 <CardHeader>
                     <CardTitle className="font-headline">Info de Contacto</CardTitle>
                 </CardHeader>
@@ -96,21 +102,21 @@ export function ContactSection() {
                     </div>
                     <div className="flex items-center gap-4">
                         <Mail className="h-6 w-6 text-primary"/>
-                        <a href="mailto:hola@manyadigital.com" className="hover:text-primary">hola@manyadigital.com</a>
+                        <a href="mailto:hola@manyadigital.com" className="transition-colors duration-300 ease-in-out hover:text-primary">hola@manyadigital.com</a>
                     </div>
                     <div className="flex items-center gap-4">
                         <Phone className="h-6 w-6 text-primary"/>
-                        <a href="tel:+5491112345678" className="hover:text-primary">+54 9 11 1234-5678</a>
+                        <a href="tel:+5491112345678" className="transition-colors duration-300 ease-in-out hover:text-primary">+54 9 11 1234-5678</a>
                     </div>
                 </CardContent>
              </Card>
-             <div className="overflow-hidden rounded-lg shadow-lg">
+             <div className="overflow-hidden rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
                 {mapImage && <Image src={mapImage.imageUrl} alt="Ubicación" width={600} height={450} className="w-full" data-ai-hint={mapImage.imageHint} />}
              </div>
           </div>
 
           <div className="lg:col-span-3">
-            <Card className="p-4 sm:p-6 md:p-8">
+            <Card className="p-4 sm:p-6 md:p-8 transition-shadow duration-300 hover:shadow-lg">
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}
@@ -158,7 +164,7 @@ export function ContactSection() {
                         >
                           <FormControl>
                             <SelectTrigger>
-                              <SelectValue placeholder="Seleccioná un servicio (opcional)" />
+                              <SelectValue placeholder="Elegí un servicio (opcional)" />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
@@ -181,10 +187,10 @@ export function ContactSection() {
                     name="question"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>¿En qué podemos ayudarte?</FormLabel>
+                        <FormLabel>¿En qué te podemos ayudar?</FormLabel>
                         <FormControl>
                           <Textarea
-                            placeholder="Contanos sobre tu proyecto, objetivos y necesidades..."
+                            placeholder="Contanos sobre tu proyecto, tus metas, tus sueños..."
                             className="min-h-[120px]"
                             {...field}
                           />
@@ -193,7 +199,7 @@ export function ContactSection() {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button type="submit" className="w-full transition-all duration-300 ease-in-out hover:scale-105" disabled={isSubmitting}>
                     {isSubmitting ? (
                         <>
                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -209,6 +215,6 @@ export function ContactSection() {
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
