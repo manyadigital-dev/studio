@@ -37,11 +37,11 @@ export default function ServiciosPage() {
                         return (
                             <Card
                                 key={service.title}
-                                className="h-full transform transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 bg-card border border-border/50"
+                                className="h-full transform transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20 bg-card border"
                             >
                                 <CardHeader className="p-8">
                                     {Icon && (
-                                    <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 text-primary">
+                                    <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                                         <Icon className="h-8 w-8" strokeWidth={2} />
                                     </div>
                                     )}

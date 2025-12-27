@@ -29,7 +29,7 @@ export function Header() {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         isScrolled
-          ? 'bg-background/80 shadow-md shadow-primary/5 backdrop-blur-sm border-b border-border/50'
+          ? 'bg-background/80 shadow-sm backdrop-blur-sm'
           : 'bg-transparent'
       )}
     >
@@ -54,7 +54,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-            <Button asChild className='hidden md:flex bg-gradient-to-r from-primary to-accent text-primary-foreground transition-transform duration-300 ease-in-out hover:scale-105'>
+            <Button asChild className='hidden md:flex bg-primary text-primary-foreground transition-transform duration-300 ease-in-out hover:scale-105'>
                 <Link href="/contacto">Hablemos</Link>
             </Button>
             <div className="md:hidden">
@@ -65,7 +65,7 @@ export function Header() {
                     <span className="sr-only">Abrir menú</span>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-card">
+                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background">
                   <div className="flex h-full flex-col">
                     <div className="mb-8 flex items-center justify-between">
                       <Link

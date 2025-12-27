@@ -5,7 +5,7 @@ import { successCases } from '@/lib/data';
 
 export function SuccessCasesSection() {
   return (
-    <section id="casos-de-exito" className="py-16 md:py-24 bg-secondary/30">
+    <section id="casos-de-exito" className="py-16 md:py-24 bg-muted/30">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-12 text-center">
           <h2 className="font-headline text-3xl font-bold md:text-4xl">
@@ -18,7 +18,7 @@ export function SuccessCasesSection() {
         </div>
         <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-3">
           {successCases.map((caseStudy) => (
-            <Card key={caseStudy.title} className="overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl bg-card border-border/50">
+            <Card key={caseStudy.title} className="overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-2xl bg-card border">
               <div className="relative h-48 w-full">
                 <Image
                   src={caseStudy.image.src}

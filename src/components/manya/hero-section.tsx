@@ -47,7 +47,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <Button asChild size="lg" className="bg-gradient-to-r from-primary to-accent text-primary-foreground transition-transform duration-300 ease-in-out hover:scale-105 shadow-lg hover:shadow-primary/40 rounded-full px-8 py-6 text-lg">
+            <Button asChild size="lg" className="bg-primary text-primary-foreground transition-transform duration-300 ease-in-out hover:scale-105 shadow-lg hover:shadow-primary/40 rounded-full px-8 py-6 text-lg">
                 <Link href="#contacto">Pedí una consultoría gratis</Link>
             </Button>
             <p className="text-sm text-muted-foreground max-w-[200px]">Dejanos tu consulta y te damos 30 minutos sin cargo.</p>
@@ -59,7 +59,7 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6 text-foreground"
           >
-             <Card className="bg-card/50 border-border/20 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+             <Card className="bg-background/50 border backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <CardContent className="p-6 flex items-center gap-4">
                     <div className="p-3 bg-primary/10 rounded-lg">
                       <Layers className="h-8 w-8 text-primary"/>
@@ -70,7 +70,7 @@ export function HeroSection() {
                     </div>
                 </CardContent>
              </Card>
-             <Card className="bg-card/50 border-border/20 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+             <Card className="bg-background/50 border backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <CardContent className="p-6 flex items-center gap-4">
                     <div className="p-3 bg-accent/10 rounded-lg">
                       <Briefcase className="h-8 w-8 text-accent"/>
@@ -90,25 +90,25 @@ export function HeroSection() {
                 variants={iconVariants(5)}
                 initial="initial"
                 animate="animate"
-                className="absolute top-1/4 left-1/4 w-24 h-24 bg-primary/20 rounded-full flex items-center justify-center shadow-lg"
+                className="absolute top-1/4 left-1/4 w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center shadow-lg"
               >
-              <Bot className="h-12 w-12 text-primary" strokeWidth={2}/>
+              <Bot className="h-12 w-12 text-primary" strokeWidth={1.5}/>
             </motion.div>
             <motion.div
                 variants={iconVariants(7)}
                 initial="initial"
                 animate="animate"
-                className="absolute top-1/2 right-1/4 w-28 h-28 bg-accent/20 rounded-full flex items-center justify-center shadow-xl"
+                className="absolute top-1/2 right-1/4 w-28 h-28 bg-accent/10 rounded-full flex items-center justify-center shadow-xl"
               >
-              <Award className="h-14 w-14 text-accent" strokeWidth={2}/>
+              <Award className="h-14 w-14 text-accent" strokeWidth={1.5}/>
             </motion.div>
             <motion.div
                 variants={iconVariants(6)}
                 initial="initial"
                 animate="animate"
-                className="absolute bottom-1/4 left-1/3 w-20 h-20 bg-secondary rounded-full flex items-center justify-center shadow-md"
+                className="absolute bottom-1/4 left-1/3 w-20 h-20 bg-secondary/10 border rounded-full flex items-center justify-center shadow-md"
               >
-              <Layers className="h-10 w-10 text-secondary-foreground" strokeWidth={2}/>
+              <Layers className="h-10 w-10 text-foreground/80" strokeWidth={1.5}/>
             </motion.div>
         </div>
       </div>

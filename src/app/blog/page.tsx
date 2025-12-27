@@ -34,7 +34,7 @@ export default function BlogPage() {
             <Card
               key={post.slug}
               id={post.slug}
-              className="flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl"
+              className="flex flex-col overflow-hidden transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl border bg-card"
             >
               <div className="relative h-56 w-full">
                 <Image

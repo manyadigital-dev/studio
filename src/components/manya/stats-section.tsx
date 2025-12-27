@@ -15,7 +15,7 @@ const statVariant = {
 
 export function StatsSection() {
   return (
-    <section className="py-24 md:py-32 bg-secondary/30">
+    <section className="py-24 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
           {stats.map((stat, index) => (

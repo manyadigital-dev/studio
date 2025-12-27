@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 export function FinalCtaSection() {
   return (
     <motion.section
-      className="py-24 md:py-32 bg-gradient-to-tr from-primary/90 to-accent/90"
+      className="py-24 md:py-32 bg-primary"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.5 }}
@@ -23,6 +23,10 @@ export function FinalCtaSection() {
           <h2 className="font-headline text-4xl font-bold md:text-5xl drop-shadow-md">
             ¿Listo para crecer?
           </h2>
+          <p className="mx-auto mt-4 max-w-xl md:text-lg">
+            Dejanos tu consulta y te damos 30 minutos sin cargo para analizar tu
+            proyecto.
+          </p>
           <div className="mt-8 flex justify-center">
             <Button
               asChild

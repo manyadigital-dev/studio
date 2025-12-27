@@ -74,7 +74,7 @@ export function ContactSection() {
   return (
     <motion.section 
       id="contacto" 
-      className="py-24 md:py-32 bg-secondary/30"
+      className="py-24 md:py-32"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -91,7 +91,7 @@ export function ContactSection() {
         </div>
         <div className="grid gap-16 lg:grid-cols-5">
           <div className="lg:col-span-2 space-y-10">
-             <Card className="bg-card border-border/50 transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/10">
+             <Card className="bg-card border transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/10">
                 <CardHeader>
                     <CardTitle className="font-headline font-bold">Info de Contacto</CardTitle>
                 </CardHeader>
@@ -116,7 +116,7 @@ export function ContactSection() {
           </div>
 
           <div className="lg:col-span-3">
-            <Card className="p-6 sm:p-8 md:p-10 bg-card border-border/50 transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/10">
+            <Card className="p-6 sm:p-8 md:p-10 bg-card border transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/10">
               <Form {...form}>
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}

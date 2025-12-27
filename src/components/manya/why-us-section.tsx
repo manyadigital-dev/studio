@@ -53,10 +53,10 @@ export function WhyUsSection() {
                 variants={cardVariants}
                 transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
               >
-                <Card className="h-full transform transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/10 bg-card border border-border/50 text-center">
+                <Card className="h-full transform transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/10 bg-card border text-center">
                   <CardHeader className="p-8 items-center">
                     {Icon && (
-                      <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-primary/10 to-accent/10 text-primary">
+                      <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
                         <Icon className="h-8 w-8" strokeWidth={2} />
                       </div>
                     )}

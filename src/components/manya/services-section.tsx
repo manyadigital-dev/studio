@@ -43,7 +43,7 @@ const cardVariants = {
 
 export function ServicesSection() {
   return (
-    <section id="servicios" className="py-24 md:py-32 bg-background overflow-hidden">
+    <section id="servicios" className="py-24 md:py-32 bg-muted/30 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial="hidden"
@@ -83,20 +83,20 @@ export function ServicesSection() {
                   <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                     <div className="h-full p-1">
                       <Link href={`/servicios#${service.slug}`} className="block h-full group">
-                        <Card className="h-full transform transition-all duration-300 ease-in-out group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/20 bg-card border border-border/50 p-6 flex flex-col justify-between group-hover:border-primary">
-                          <div>
+                        <Card className="h-full transform transition-all duration-300 ease-in-out group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/20 bg-card border flex flex-col justify-between group-hover:border-primary">
+                          <CardHeader className='p-8'>
                             {Icon && (
-                              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 text-primary transition-colors duration-300 group-hover:text-accent">
+                              <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors duration-300 group-hover:text-accent">
                                 <Icon className="h-8 w-8" strokeWidth={2} />
                               </div>
                             )}
                             <CardTitle className="text-xl font-bold font-headline transition-colors duration-300 group-hover:text-primary">
                               {service.title}
                             </CardTitle>
-                          </div>
-                          <CardDescription className="pt-4 text-base text-muted-foreground">
-                            {service.description}
-                          </CardDescription>
+                             <CardDescription className="pt-4 text-base text-muted-foreground">
+                              {service.description}
+                            </CardDescription>
+                          </CardHeader>
                         </Card>
                       </Link>
                     </div>
@@ -117,7 +117,7 @@ export function ServicesSection() {
             variants={cardVariants}
             transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
         >
-            <Button asChild size="lg" variant="outline" className="group rounded-full transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary hover:text-primary-foreground border-border/50 text-lg">
+            <Button asChild size="lg" variant="outline" className="group rounded-full transition-all duration-300 ease-in-out hover:scale-105 hover:bg-primary hover:text-primary-foreground text-lg">
             <Link href="/servicios">
                 Ver todos los servicios
                 <MoveRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
