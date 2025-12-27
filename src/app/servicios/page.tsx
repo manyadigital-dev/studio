@@ -54,13 +54,27 @@ export default function ServiciosPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
       />
-      <div className="space-y-8">
+      <div className="space-y-16">
         <p className="text-lg text-muted-foreground">
           Explorá nuestras soluciones diseñadas para el mercado argentino. Desde posicionar tu marca en Google hasta automatizar tus ventas con inteligencia artificial, tenemos una estrategia para vos.
         </p>
-        <p className="text-lg text-muted-foreground">
-          Navegá por nuestros servicios para descubrir cómo podemos ayudarte a crecer o ponete en contacto para una consultoría sin cargo.
-        </p>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map(service => (
+                <Card key={service.slug} className="flex flex-col">
+                    <CardContent className="p-6 flex-grow flex flex-col">
+                        <h3 className="font-headline text-xl font-bold">{service.title}</h3>
+                        <p className="mt-2 text-muted-foreground flex-grow">{service.description}</p>
+                        <Button asChild variant="outline" className="mt-6 w-full group">
+                             <Link href={`/servicios/${service.slug}`}>
+                                Ver más
+                                <MoveRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                            </Link>
+                        </Button>
+                    </CardContent>
+                </Card>
+            ))}
+        </div>
 
         <section id="proceso" className="py-16 text-center">
             <h2 className="font-headline text-3xl font-bold md:text-4xl">Nuestro Proceso</h2>
@@ -99,4 +113,3 @@ export default function ServiciosPage() {
     </>
   );
 }
-
