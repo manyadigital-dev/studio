@@ -227,6 +227,7 @@ export const blogPosts = [
   },
 ];
 
+export type ServiceDetail = typeof serviceDetails[0];
 
 export const serviceDetails = [
   {
