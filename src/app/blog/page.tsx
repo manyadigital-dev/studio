@@ -11,7 +11,7 @@ import {
 import { blogPosts } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
 import type { Metadata } from 'next';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import { es } from 'date-fns/locale';
 
 export const metadata: Metadata = {
@@ -57,7 +57,8 @@ export default function BlogPage() {
   };
 
   const formatDate = (dateString: string) => {
-    return format(new Date(dateString), "dd 'de' MMMM, yyyy", { locale: es });
+    const date = parseISO(dateString);
+    return format(date, "dd 'de' MMMM, yyyy", { locale: es });
   };
 
 

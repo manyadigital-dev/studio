@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { blogPosts } from '@/lib/data';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import { es } from 'date-fns/locale';
 
 export function BlogPreviewSection() {
   const latestPosts = blogPosts.slice(0, 3);
 
   const formatDate = (dateString: string) => {
-    return format(new Date(dateString), "dd 'de' MMMM, yyyy", { locale: es });
+    const date = parseISO(dateString);
+    return format(date, "dd 'de' MMMM, yyyy", { locale: es });
   };
 
   return (

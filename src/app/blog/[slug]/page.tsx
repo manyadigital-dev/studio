@@ -10,7 +10,7 @@ import { FinalCtaSection } from '@/components/manya/final-cta-section';
 import { BlogSidebar } from '@/components/manya/blog-sidebar';
 import { RoiCalculator } from '@/components/manya/roi-calculator';
 import type { Metadata } from 'next';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import { es } from 'date-fns/locale';
 
 type BlogPostPageProps = {
@@ -90,7 +90,8 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   };
 
   const formatDate = (dateString: string) => {
-    return format(new Date(dateString), "dd 'de' MMMM, yyyy", { locale: es });
+    const date = parseISO(dateString);
+    return format(date, "dd 'de' MMMM, yyyy", { locale: es });
   };
 
   return (

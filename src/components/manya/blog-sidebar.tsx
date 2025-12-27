@@ -14,7 +14,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from '@/component
 import { blogPosts } from '@/lib/data';
 import Link from 'next/link';
 import { Separator } from '../ui/separator';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 import { es } from 'date-fns/locale';
 
 const leadMagnetFormSchema = z.object({
@@ -54,7 +54,8 @@ export function BlogSidebar() {
   };
 
   const formatDate = (dateString: string) => {
-    return format(new Date(dateString), "dd 'de' MMMM, yyyy", { locale: es });
+    const date = parseISO(dateString);
+    return format(date, "dd 'de' MMMM, yyyy", { locale: es });
   };
 
   return (
