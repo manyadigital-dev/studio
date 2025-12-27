@@ -2,9 +2,11 @@
 import {
   Card,
 } from '@/components/ui/card';
-import { CheckCircle2, DraftingCompass, Goal, MessageCircle, TrendingUp, Users, Zap } from 'lucide-react';
+import { CheckCircle2, DraftingCompass, Goal, MessageCircle, MoveRight, TrendingUp, Users, Zap } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Button } from '@/components/ui/button';
 
 export const metadata = {
   title: 'Servicios | Manya Digital',
@@ -159,6 +161,14 @@ export default function ServiciosPage() {
                         </li>
                       ))}
                     </ul>
+                    <div className="mt-auto pt-8">
+                       <Button asChild className="group" variant="outline">
+                         <Link href={`/${service.id}`}>
+                           Ver más
+                           <MoveRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                         </Link>
+                       </Button>
+                    </div>
                   </div>
                 </div>
               </Card>
