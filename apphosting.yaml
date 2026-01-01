@@ -1,7 +1,29 @@
 # Settings to manage and configure a Firebase App Hosting backend.
 # https://firebase.google.com/docs/app-hosting/configure
 
+# Configuration for the runtime environment
 runConfig:
+  # The size of the instances to run. Options: s, m, l
+  cpu: 1
+  memoryMiB: 512
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
-  maxInstances: 1
+  minInstances: 0
+  maxInstances: 3
+  # Concurrency settings (how many requests an instance can handle at once)
+  concurrency: 80
+
+# Environment variables configuration
+env:
+  - variable: NEXT_PUBLIC_SANITY_PROJECT_ID
+    value: "7f88m3q2"
+  - variable: NEXT_PUBLIC_SANITY_DATASET
+    value: "production"
+  - variable: NODE_ENV
+    value: "production"
+
+# Build configuration
+# If your project has a specific build command or directory
+# buildConfig:
+#   buildCommand: "npm run build"
+#   outputDirectory: ".next"
