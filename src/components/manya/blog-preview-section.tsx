@@ -15,7 +15,7 @@ async function getLatestPosts() {
     mainImage
   }`;
 
-  return await client.fetch(query);
+  return await client.fetch(query, {}, { next: { revalidate: 0 } });
 }
 
 export async function BlogPreviewSection() {
