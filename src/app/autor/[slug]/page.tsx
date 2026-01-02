@@ -24,9 +24,9 @@ import { es } from 'date-fns/locale';
 import type { Metadata } from 'next';
 
 type AuthorPageProps = {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 };
 
 export async function generateStaticParams() {
@@ -55,7 +55,8 @@ async function getAuthor(slug: string) {
 }
 
 export async function generateMetadata({ params }: AuthorPageProps): Promise<Metadata> {
-    const author = await getAuthor(params.slug);
+    const { slug } = await params;
+    const author = await getAuthor(slug);
 
     if (!author) {
         return {
@@ -108,10 +109,11 @@ async function getOtherAuthors(currentSlug: string) {
 }
 
 export default async function AuthorPage({ params }: AuthorPageProps) {
+    const { slug } = await params;
     const [author, posts, otherAuthors] = await Promise.all([
-        getAuthor(params.slug),
-        getAuthorPosts(params.slug),
-        getOtherAuthors(params.slug)
+        getAuthor(slug),
+        getAuthorPosts(slug),
+        getOtherAuthors(slug)
     ]);
 
     if (!author) {
@@ -131,7 +133,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
         jobTitle: author.role,
         description: author.shortBio,
         image: author.image ? urlFor(author.image).url() : '',
-        url: `https://manyadigital.ar/autor/${params.slug}`,
+        url: `https://manyadigital.ar/autor/${slug}`,
         sameAs: [
             author.social?.linkedin,
             author.social?.instagram,

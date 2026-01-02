@@ -9,8 +9,9 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const location = locationDetails.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const location = locationDetails.find((p) => p.slug === slug);
     if (!location) {
         return {
             title: 'Ubicación no encontrada',
@@ -22,8 +23,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 }
 
-export default function LocationPage({ params }: { params: { slug: string } }) {
-    const location = locationDetails.find((p) => p.slug === params.slug);
+export default async function LocationPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const location = locationDetails.find((p) => p.slug === slug);
 
     if (!location) {
         notFound();

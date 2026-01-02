@@ -14,9 +14,9 @@ import { format, parseISO } from 'date-fns';
 import { es } from 'date-fns/locale';
 
 type BlogPostPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 async function getPost(slug: string) {
@@ -60,7 +60,8 @@ async function getSidebarData() {
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const post = await getPost(params.slug);
+  const { slug } = await params;
+  const post = await getPost(slug);
 
   if (!post) {
     return {
@@ -100,8 +101,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { slug } = await params;
   const [post, sidebarData] = await Promise.all([
-    getPost(params.slug),
+    getPost(slug),
     getSidebarData()
   ]);
 
