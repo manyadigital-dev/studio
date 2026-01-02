@@ -49,7 +49,7 @@ export function HeroSection() {
             className="mt-10 flex flex-wrap items-center gap-4"
           >
             <Button asChild size="lg" className="bg-primary text-primary-foreground transition-transform duration-300 ease-in-out hover:scale-105 shadow-lg hover:shadow-primary/40 rounded-full px-8 py-6 text-lg">
-              <Link href="#contacto">Pedí una consultoría gratis</Link>
+              <Link href="/contacto">Pedí una consultoría gratis</Link>
             </Button>
             <p className="text-sm text-muted-foreground max-w-[200px]">Dejanos tu consulta y te damos 30 minutos sin cargo.</p>
           </motion.div>

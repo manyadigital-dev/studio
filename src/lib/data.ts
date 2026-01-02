@@ -12,7 +12,7 @@ const getImage = (id: string): { src: string; hint: string } => {
 
 export const navLinks = [
   { name: 'Servicios', href: '/servicios' },
-  { name: 'Por qué elegirnos', href: '#por-que-elegirnos' },
+  { name: 'Por qué elegirnos', href: '/#por-que-elegirnos' },
   { name: 'Blog', href: '/blog' },
   { name: 'Contacto', href: '/contacto' },
 ];
