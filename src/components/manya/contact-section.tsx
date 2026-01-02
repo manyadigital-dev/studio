@@ -83,8 +83,8 @@ export function ContactSection() {
   };
 
   return (
-    <motion.section 
-      id="contacto" 
+    <motion.section
+      id="contacto"
       className="py-24 md:py-32"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -102,28 +102,28 @@ export function ContactSection() {
         </div>
         <div className="grid gap-16 lg:grid-cols-5">
           <div className="lg:col-span-2 space-y-10">
-             <Card className="bg-card border transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/10">
-                <CardHeader>
-                    <CardTitle className="font-headline font-bold">Info de Contacto</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6 text-muted-foreground">
-                    <div className="flex items-start gap-4">
-                        <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" strokeWidth={2}/>
-                        <span>Ambrosio Olmos 782<br/>X5000, Córdoba, Argentina</span>
-                    </div>
-                    <div className="flex items-center gap-4">
-                        <Mail className="h-6 w-6 text-primary flex-shrink-0" strokeWidth={2}/>
-                        <a href="mailto:hola@manyadigital.ar" className="transition-colors duration-300 ease-in-out hover:text-primary">hola@manyadigital.ar</a>
-                    </div>
-                    <div className="flex items-center gap-4">
-                        <Phone className="h-6 w-6 text-primary flex-shrink-0" strokeWidth={2}/>
-                        <a href="tel:+541158578004" className="transition-colors duration-300 ease-in-out hover:text-primary">+54 11 5857-8004</a>
-                    </div>
-                </CardContent>
-             </Card>
-             <div className="overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/20">
-                {mapImage && <Image src={mapImage.imageUrl} alt="Ubicación" width={600} height={450} className="w-full" data-ai-hint={mapImage.imageHint} />}
-             </div>
+            <Card className="bg-card border transition-shadow duration-300 hover:shadow-lg hover:shadow-primary/10">
+              <CardHeader>
+                <CardTitle className="font-headline font-bold">Info de Contacto</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6 text-muted-foreground">
+                <div className="flex items-start gap-4">
+                  <MapPin className="h-6 w-6 text-primary mt-1 flex-shrink-0" strokeWidth={2} />
+                  <span>Ambrosio Olmos 782<br />X5000, Córdoba, Argentina</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Mail className="h-6 w-6 text-primary flex-shrink-0" strokeWidth={2} />
+                  <a href="mailto:hola@manyadigital.com.ar" className="transition-colors duration-300 ease-in-out hover:text-primary">hola@manyadigital.com.ar</a>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Phone className="h-6 w-6 text-primary flex-shrink-0" strokeWidth={2} />
+                  <a href="tel:+541158578004" className="transition-colors duration-300 ease-in-out hover:text-primary">+54 11 5857-8004</a>
+                </div>
+              </CardContent>
+            </Card>
+            <div className="overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/20">
+              {mapImage && <Image src={mapImage.imageUrl} alt="Ubicación" width={600} height={450} className="w-full" data-ai-hint={mapImage.imageHint} />}
+            </div>
           </div>
 
           <div className="lg:col-span-3">
@@ -263,12 +263,12 @@ export function ContactSection() {
                   />
                   <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-primary to-accent font-bold text-primary-foreground transition-transform duration-300 ease-in-out hover:scale-105 shadow-lg hover:shadow-primary/40 rounded-full" disabled={isSubmitting}>
                     {isSubmitting ? (
-                        <>
-                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                         Enviando...
-                        </>
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Enviando...
+                      </>
                     ) : (
-                        'Enviar consulta'
+                      'Enviar consulta'
                     )}
                   </Button>
                 </form>

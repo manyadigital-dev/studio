@@ -21,34 +21,34 @@ export const metadata: Metadata = {
 };
 
 const processSteps = [
-    { title: 'Discovery', description: 'Nos metemos de lleno para conocer tu negocio, tus metas y tus dolores.'},
-    { title: 'Estrategia', description: 'Con data en mano, diseñamos un plan a medida. Sin humo, solo acciones concretas.'},
-    { title: 'Ejecución', description: 'Ponemos manos a la obra. Implementamos, medimos y te mantenemos al tanto de todo.'},
-    { title: 'Optimización', description: 'El trabajo nunca termina. Analizamos resultados y ajustamos para mejorar continuamente.'}
+  { title: 'Discovery', description: 'Nos metemos de lleno para conocer tu negocio, tus metas y tus dolores.' },
+  { title: 'Estrategia', description: 'Con data en mano, diseñamos un plan a medida. Sin humo, solo acciones concretas.' },
+  { title: 'Ejecución', description: 'Ponemos manos a la obra. Implementamos, medimos y te mantenemos al tanto de todo.' },
+  { title: 'Optimización', description: 'El trabajo nunca termina. Analizamos resultados y ajustamos para mejorar continuamente.' }
 ]
 
 export default function ServiciosPage() {
-    const servicesSchema = {
-      '@context': 'https://schema.org',
-      '@type': 'ItemList',
-      name: 'Servicios de MANYA Digital',
-      itemListElement: services.map((service, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        item: {
-          '@type': 'Service',
-          name: service.title,
-          description: service.description,
-          url: `https://manyadigital.ar/servicios/${service.slug}`,
-          provider: {
-            '@type': 'Organization',
-            name: 'MANYA Digital',
-          },
+  const servicesSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Servicios de MANYA Digital',
+    itemListElement: services.map((service, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Service',
+        name: service.title,
+        description: service.description,
+        url: `https://manyadigital.com.ar/servicios/${service.slug}`,
+        provider: {
+          '@type': 'Organization',
+          name: 'MANYA Digital',
         },
-      })),
-    };
+      },
+    })),
+  };
 
-    return (
+  return (
     <>
       <script
         type="application/ld+json"
@@ -56,10 +56,10 @@ export default function ServiciosPage() {
       />
       <div className="text-center mb-16">
         <h1 className="font-headline text-4xl font-bold md:text-5xl">
-        Servicios que <span className="text-primary">mañan</span> resultados
+          Servicios que <span className="text-primary">mañan</span> resultados
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
-        No solo hacemos marketing, creamos sistemas de crecimiento. Combinamos estrategia, creatividad y tecnología para llevar tu marca al siguiente nivel.
+          No solo hacemos marketing, creamos sistemas de crecimiento. Combinamos estrategia, creatividad y tecnología para llevar tu marca al siguiente nivel.
         </p>
       </div>
 
@@ -67,54 +67,54 @@ export default function ServiciosPage() {
         <p className="text-lg text-muted-foreground text-center">
           Explorá nuestras soluciones diseñadas para el mercado argentino. Desde posicionar tu marca en Google hasta automatizar tus ventas con inteligencia artificial, tenemos una estrategia para vos.
         </p>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map(service => (
-                <Card key={service.slug} className="flex flex-col">
-                    <CardContent className="p-6 flex-grow flex flex-col">
-                        <h3 className="font-headline text-xl font-bold">{service.title}</h3>
-                        <p className="mt-2 text-muted-foreground flex-grow">{service.description}</p>
-                        <Button asChild variant="outline" className="mt-6 w-full group">
-                             <Link href={`/servicios/${service.slug}`}>
-                                Ver más
-                                <MoveRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                            </Link>
-                        </Button>
-                    </CardContent>
-                </Card>
-            ))}
+          {services.map(service => (
+            <Card key={service.slug} className="flex flex-col">
+              <CardContent className="p-6 flex-grow flex flex-col">
+                <h3 className="font-headline text-xl font-bold">{service.title}</h3>
+                <p className="mt-2 text-muted-foreground flex-grow">{service.description}</p>
+                <Button asChild variant="outline" className="mt-6 w-full group">
+                  <Link href={`/servicios/${service.slug}`}>
+                    Ver más
+                    <MoveRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         <section id="proceso" className="py-16 text-center">
-            <h2 className="font-headline text-3xl font-bold md:text-4xl">Nuestro Proceso</h2>
-            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
-                Cuatro pasos para resultados garantizados.
-            </p>
-            <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-                {processSteps.map((step, index) => (
-                    <div key={step.title} className="flex flex-col items-center">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-primary/10 font-headline text-2xl font-bold text-primary">
-                            {index + 1}
-                        </div>
-                        <h3 className="mt-6 font-headline text-xl font-bold">{step.title}</h3>
-                        <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
-                    </div>
-                ))}
-            </div>
+          <h2 className="font-headline text-3xl font-bold md:text-4xl">Nuestro Proceso</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
+            Cuatro pasos para resultados garantizados.
+          </p>
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {processSteps.map((step, index) => (
+              <div key={step.title} className="flex flex-col items-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-primary bg-primary/10 font-headline text-2xl font-bold text-primary">
+                  {index + 1}
+                </div>
+                <h3 className="mt-6 font-headline text-xl font-bold">{step.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{step.description}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <Card className="bg-muted/40 border">
           <CardContent className="p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div>
-                  <h3 className="font-headline font-bold text-lg">¿No sabés por dónde empezar?</h3>
-                  <p className="mt-1 text-muted-foreground">No te preocupes. Hablemos y encontramos juntos el camino.</p>
-              </div>
-              <Button asChild className="group w-full sm:w-auto">
-                  <Link href="/contacto">
-                      Agendar llamada gratis
-                      <MoveRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </Link>
-              </Button>
+            <div>
+              <h3 className="font-headline font-bold text-lg">¿No sabés por dónde empezar?</h3>
+              <p className="mt-1 text-muted-foreground">No te preocupes. Hablemos y encontramos juntos el camino.</p>
+            </div>
+            <Button asChild className="group w-full sm:w-auto">
+              <Link href="/contacto">
+                Agendar llamada gratis
+                <MoveRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
+            </Button>
           </CardContent>
         </Card>
 

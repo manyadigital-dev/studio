@@ -56,14 +56,14 @@ export default async function BlogPage() {
       name: 'MANYA Digital',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://manyadigital.ar/logo.png',
+        url: 'https://manyadigital.com.ar/logo.png',
       },
     },
     blogPost: blogPosts.map((post: any) => ({
       '@type': 'BlogPosting',
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': `https://manyadigital.ar/blog/${post.slug}`,
+        '@id': `https://manyadigital.com.ar/blog/${post.slug}`,
       },
       headline: post.title,
       image: post.mainImage ? urlFor(post.mainImage).url() : '',

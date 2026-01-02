@@ -15,10 +15,10 @@ export default function Home() {
   const webSiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    url: 'https://manyadigital.ar',
+    url: 'https://manyadigital.com.ar',
     potentialAction: {
       '@type': 'SearchAction',
-      target: 'https://manyadigital.ar/buscar?q={search_term_string}',
+      target: 'https://manyadigital.com.ar/buscar?q={search_term_string}',
       'query-input': 'required name=search_term_string',
     },
   };

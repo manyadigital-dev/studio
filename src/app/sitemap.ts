@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next';
 import { services, locations } from '@/lib/data';
 import { client } from '@/lib/sanity';
 
-const BASE_URL = 'https://manyadigital.ar';
+const BASE_URL = 'https://manyadigital.com.ar';
 
 async function getBlogPosts() {
   const query = `*[_type == "post"] {

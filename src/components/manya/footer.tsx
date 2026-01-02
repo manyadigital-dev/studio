@@ -30,7 +30,7 @@ export function Footer() {
             <p className="mb-4 font-semibold text-lg font-headline">Contacto</p>
             <address className="not-italic space-y-3 text-sm text-muted-foreground">
               <p>Presencia en toda Argentina</p>
-              <p><a href="mailto:hola@manyadigital.com" className="transition-colors duration-300 ease-in-out hover:text-primary">hola@manyadigital.com</a></p>
+              <p><a href="mailto:hola@manyadigital.com.ar" className="transition-colors duration-300 ease-in-out hover:text-primary">hola@manyadigital.com.ar</a></p>
               <p><a href="tel:+541158578004" className="transition-colors duration-300 ease-in-out hover:text-primary">+54 11 5857-8004</a></p>
             </address>
           </div>

@@ -108,7 +108,7 @@ const authors = [
         role: 'SEO 💻 | MARKETING',
         shortBio: 'Con más de 15 años de experiencia en el sector automovilístico, Pietro es reconocido por sus análisis profundos y reseñas técnicas que combinan expertise profesional con pasión genuina por los vehículos.',
         specialties: ['SEO Estratégico', 'Performance Marketing', 'Growth Hacking', 'Analítica Avanzada'],
-        email: 'pietro@manyadigital.ar',
+        email: 'pietro@manyadigital.com.ar',
         social: {
             linkedin: 'https://linkedin.com/in/pietrofiorillo',
             instagram: 'https://instagram.com/pietrofiorillo',

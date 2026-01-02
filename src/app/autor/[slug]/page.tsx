@@ -133,7 +133,7 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
         jobTitle: author.role,
         description: author.shortBio,
         image: author.image ? urlFor(author.image).url() : '',
-        url: `https://manyadigital.ar/autor/${slug}`,
+        url: `https://manyadigital.com.ar/autor/${slug}`,
         sameAs: [
             author.social?.linkedin,
             author.social?.instagram,
