@@ -2,6 +2,7 @@
 # https://firebase.google.com/docs/app-hosting/configure
 
 # Configuration for the runtime environment
+runtime: nodejs20
 runConfig:
   # The size of the instances to run. Options: s, m, l
   cpu: 1
