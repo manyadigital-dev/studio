@@ -1,0 +1,140 @@
+{
+  "_createdAt": "2026-01-03T16:11:35Z",
+  "_id": "city-cordoba",
+  "_rev": "gIL6gG1KMduIaNHsMFxttk",
+  "_system": {
+    "base": {
+      "id": "city-cordoba",
+      "rev": "UiZb3IwptsI2jxbXRBcTHT"
+    }
+  },
+  "_type": "city",
+  "_updatedAt": "2026-01-05T17:39:14Z",
+  "cta1Button": "Quiero destacar en Córdoba",
+  "cta1H2": "¿Querés crecer en Córdoba?",
+  "cta1P": "Córdoba es un mercado vibrante y competitivo. Si tu negocio no destaca digitalmente, estás perdiendo oportunidades frente a la competencia en La Docta. Te ayudamos a pisar fuerte.",
+  "cta2Button": "Agendar mi reunión",
+  "cta2H2": "Consultoría de Marketing en Córdoba Gratis",
+  "factorsH3": "Claves para el éxito digital en Córdoba",
+  "factorsP": "Para triunfar en el centro del país, necesitás una combinación de factores:",
+  "factorsPoints": [
+    "Visibilidad en Google Maps para búsquedas locales.",
+    "Redes sociales activas que generen comunidad.",
+    "Un sitio web rápido y adaptado a móviles.",
+    "Reputación online positiva (reseñas y testimonios).",
+    "Ofertas y promociones alineadas con el calendario local."
+  ],
+  "faqs": [
+    {
+      "_key": "92cp894v5",
+      "answer": "Sí, trabajamos con clientes de diversos rubros en Córdoba, entendiendo las particularidades del mercado local.",
+      "question": "¿Tienen experiencia con empresas de Córdoba?"
+    },
+    {
+      "_key": "f1v8ad48r",
+      "answer": "Trabajamos principalmente de forma remota para ser más ágiles y eficientes, pero estamos siempre conectados por videollamada y canales directos.",
+      "question": "¿Hacen reuniones presenciales en Córdoba?"
+    },
+    {
+      "_key": "dzktju61q",
+      "answer": "Analizamos las tendencias de búsqueda locales y el comportamiento del consumidor en la región para crear mensajes que resuenen.",
+      "question": "¿Cómo adaptan la estrategia al público cordobés?"
+    },
+    {
+      "_key": "38f9lr40d",
+      "answer": "¡Es fundamental! El SEO Local te permite aparecer cuando alguien busca tus servicios en Google Maps o en el buscador desde Córdoba.",
+      "question": "¿Sirve el SEO para un negocio local en Córdoba?"
+    },
+    {
+      "_key": "4r2s4u4e2",
+      "answer": "Claro que sí. Gestionamos tus perfiles en Instagram, Facebook, TikTok y LinkedIn con contenido relevante para tu audiencia.",
+      "question": "¿Pueden manejar mis redes sociales?"
+    }
+  ],
+  "hero": {
+    "h1": "Agencia de Marketing Digital en Córdoba",
+    "subservices": [
+      "SEO",
+      "IA",
+      "RRSS",
+      "Automatizaciones"
+    ]
+  },
+  "heroH1": "Tu Agencia de Marketing Digital en Córdoba",
+  "heroSubservices": [
+    "SEO Local",
+    "Gestión de Redes Sociales",
+    "Diseño Web",
+    "Publicidad Online",
+    "Consultoría Estratégica"
+  ],
+  "howWeHelpH3": "Estrategias pensadas para el mercado cordobés",
+  "howWeHelpP": "Conocemos la idiosincrasia de Córdoba. No aplicamos recetas genéricas, sino estrategias adaptadas a la realidad de tu negocio y tu competencia local.",
+  "howWeHelpPoints": [
+    "Auditoría de tu presencia digital actual en el mercado de Córdoba.",
+    "Estrategias de SEO Local para aparecer en búsquedas \"cerca de mí\" en la ciudad.",
+    "Campañas publicitarias segmentadas geográficamente con precisión.",
+    "Contenido que conecta con el tono y estilo del público local.",
+    "Reportes claros para que veas el retorno de tu inversión."
+  ],
+  "meta": {
+    "description": "Somos una agencia de marketing digital en Córdoba especializada en estrategias que convierten para turismo, servicios y empresas en crecimiento.",
+    "title": "Agencia de Marketing Digital en Córdoba | MANYA Digital"
+  },
+  "metaDescription": "Potenciá tu negocio en La Docta con nuestra agencia de marketing digital en Córdoba. SEO, Redes Sociales y Diseño Web para destacar en el mercado cordobés.",
+  "metaTitle": "Agencia de Marketing Digital en Córdoba | MANYA Digital",
+  "positionButton": "Empezar ahora",
+  "positionH3": "Posicionate en el corazón del país",
+  "positionP": "Córdoba es tierra de oportunidades para quienes se animan a innovar. Llevá tu negocio al siguiente nivel con una estrategia digital sólida y profesional.",
+  "rankH3": "¿Podés liderar tu rubro en Córdoba?",
+  "rankPoints": [
+    {
+      "_key": "xfubuubtd",
+      "description": "Vemos qué están haciendo los líderes de tu sector en Córdoba y buscamos cómo superarlos.",
+      "title": "Análisis de Competencia"
+    },
+    {
+      "_key": "u546czsx4",
+      "description": "Encontramos tu ángulo único para que no seas \"uno más\" en el mercado.",
+      "title": "Diferenciación"
+    },
+    {
+      "_key": "j40m8ox5h",
+      "description": "El marketing no es magia, es trabajo constante. Te acompañamos en el día a día.",
+      "title": "Constancia"
+    },
+    {
+      "_key": "7f7gnw8z1",
+      "description": "Nos enfocamos en métricas de negocio: ventas, consultas y crecimiento.",
+      "title": "Resultados Reales"
+    }
+  ],
+  "slug": {
+    "_type": "slug",
+    "current": "cordoba"
+  },
+  "title": "Córdoba",
+  "whyH3": "¿Por qué invertir en marketing digital en Córdoba?",
+  "whyPoints": [
+    {
+      "_key": "m5gi56tna",
+      "description": "Córdoba es un hub tecnológico e industrial clave. La competencia digital crece día a día.",
+      "title": "Mercado en Expansión"
+    },
+    {
+      "_key": "sovfvl5g8",
+      "description": "Desde Nueva Córdoba hasta el Cerro, llegá a tu público ideal y expandite al resto del país.",
+      "title": "Alcance Local y Nacional"
+    },
+    {
+      "_key": "36tgw0efy",
+      "description": "Si estás en turismo o servicios, el posicionamiento digital es vital para captar la demanda constante.",
+      "title": "Turismo y Servicios"
+    },
+    {
+      "_key": "6mi47vqtg",
+      "description": "El público cordobés valora la innovación. Una presencia digital moderna es tu carta de presentación.",
+      "title": "Innovación Cordobesa"
+    }
+  ]
+}
