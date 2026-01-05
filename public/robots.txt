@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /icon.png
+Allow: /apple-icon.png
+Allow: /favicon.ico
+
+Sitemap: https://manyadigital.com.ar/sitemap.xml

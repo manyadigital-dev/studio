@@ -43,7 +43,11 @@ export const metadata: Metadata = {
     canonical: './',
   },
   icons: {
-    icon: '/icon.png',
+    icon: [
+      { url: '/icon.png' },
+      { url: '/icon.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/icon.png',
     apple: '/apple-icon.png',
   },
 };
