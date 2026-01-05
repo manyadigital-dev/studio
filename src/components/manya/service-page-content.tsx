@@ -16,10 +16,11 @@ import { FaqSchema } from './faq-schema';
 export function ServicePageContent({ service }: { service: ServiceDetail }) {
 
   const renderHeroTitle = () => {
-    if (!service.hero.h1 || !service.title) {
-      return service.hero.h1;
+    if (!service?.hero?.h1 || !service?.title) {
+      return service?.hero?.h1 || service?.title || '';
     }
     const parts = service.hero.h1.split(service.title);
+    if (parts.length < 2) return service.hero.h1;
     return (
       <>
         {parts[0]}
@@ -53,7 +54,7 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground"
           >
-            {service.meta.description}
+            {service?.meta?.description}
           </motion.p>
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -61,7 +62,7 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
             className="mt-8 flex flex-wrap justify-center gap-3"
           >
-            {service.hero.subservices.map(sub => (
+            {service?.hero?.subservices?.map(sub => (
               <Badge
                 key={sub}
                 variant="secondary"
@@ -79,7 +80,7 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
           >
             <Button asChild size="lg" className="group rounded-full px-8 text-lg">
               <Link href="/contacto">
-                {service.cta1.button}
+                {service?.cta1?.button || 'Contactar'}
                 <MoveRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </Button>
@@ -91,10 +92,10 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
       <section className="py-20 md:py-24 bg-muted/20">
         <div className="container">
           <div className="text-center mb-12">
-            <h3 className="font-headline text-3xl md:text-4xl font-bold">{service.why.h3}</h3>
+            <h3 className="font-headline text-3xl md:text-4xl font-bold">{service?.why?.h3}</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {service.why.points.map(point => (
+            {service?.why?.points?.map(point => (
               <Card key={point.title} className="text-center border-0 shadow-none bg-transparent">
                 <CardHeader>
                   <div className="flex justify-center mb-4">
@@ -116,9 +117,9 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
       {/* CTA 2 */}
       <section className="py-24 md:py-32 bg-primary text-primary-foreground">
         <div className="container text-center">
-          <h2 className="font-headline text-4xl md:text-5xl font-bold">{service.cta2.h2}</h2>
+          <h2 className="font-headline text-4xl md:text-5xl font-bold">{service?.cta2?.h2}</h2>
           <Button asChild size="lg" variant="outline" className="mt-8 bg-primary-foreground text-primary font-bold rounded-full px-8 py-6 text-lg transition-colors hover:bg-primary-foreground/90">
-            <Link href="/contacto">{service.cta2.button}</Link>
+            <Link href="/contacto">{service?.cta2?.button || 'Empezar ahora'}</Link>
           </Button>
         </div>
       </section>
@@ -128,10 +129,10 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="font-headline text-3xl md:text-4xl font-bold">{service.howWeHelp.h3}</h3>
-              <p className="mt-6 text-lg text-muted-foreground">{service.howWeHelp.p}</p>
+              <h3 className="font-headline text-3xl md:text-4xl font-bold">{service?.howWeHelp?.h3}</h3>
+              <p className="mt-6 text-lg text-muted-foreground">{service?.howWeHelp?.p}</p>
               <ul className="mt-6 space-y-4">
-                {service.howWeHelp.points.map(point => (
+                {service?.howWeHelp?.points?.map(point => (
                   <li key={point} className="flex items-start gap-3">
                     <CheckCircle className="h-6 w-6 text-primary mt-1" />
                     <span>{point}</span>
@@ -140,7 +141,7 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
               </ul>
             </div>
             <div>
-              <Image src={PlaceHolderImages.find(p => p.id === 'service-web')?.imageUrl || ''} alt={service.howWeHelp.h3} width={600} height={400} className="rounded-2xl shadow-xl" data-ai-hint="digital strategy" />
+              <Image src={PlaceHolderImages.find(p => p.id === 'service-web')?.imageUrl || ''} alt={service?.howWeHelp?.h3 || ''} width={600} height={400} className="rounded-2xl shadow-xl" data-ai-hint="digital strategy" />
             </div>
           </div>
         </div>
@@ -151,13 +152,13 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1">
-              <Image src={PlaceHolderImages.find(p => p.id === 'service-seo')?.imageUrl || ''} alt={service.factors.h3} width={600} height={400} className="rounded-2xl shadow-xl" data-ai-hint="analytics dashboard" />
+              <Image src={PlaceHolderImages.find(p => p.id === 'service-seo')?.imageUrl || ''} alt={service?.factors?.h3 || ''} width={600} height={400} className="rounded-2xl shadow-xl" data-ai-hint="analytics dashboard" />
             </div>
             <div className="order-1 md:order-2">
-              <h3 className="font-headline text-3xl md:text-4xl font-bold">{service.factors.h3}</h3>
-              <p className="mt-6 text-lg text-muted-foreground">{service.factors.p}</p>
+              <h3 className="font-headline text-3xl md:text-4xl font-bold">{service?.factors?.h3}</h3>
+              <p className="mt-6 text-lg text-muted-foreground">{service?.factors?.p}</p>
               <ul className="mt-6 space-y-4">
-                {service.factors.points.map(point => (
+                {service?.factors?.points?.map(point => (
                   <li key={point} className="flex items-start gap-3">
                     <CheckCircle className="h-6 w-6 text-primary mt-1" />
                     <span>{point}</span>
@@ -173,10 +174,10 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
       <section className="py-20 md:py-24">
         <div className="container">
           <div className="text-center mb-12">
-            <h3 className="font-headline text-3xl md:text-4xl font-bold">{service.rank.h3}</h3>
+            <h3 className="font-headline text-3xl md:text-4xl font-bold">{service?.rank?.h3}</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {service.rank.points.map(point => (
+            {service?.rank?.points?.map(point => (
               <Card key={point.title} className="text-center">
                 <CardHeader>
                   <div className="flex justify-center mb-4">
@@ -200,17 +201,17 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <h3 className="font-headline text-3xl md:text-4xl font-bold">{service.position.h3}</h3>
-              <p className="mt-6 text-lg text-muted-foreground">{service.position.p}</p>
+              <h3 className="font-headline text-3xl md:text-4xl font-bold">{service?.position?.h3}</h3>
+              <p className="mt-6 text-lg text-muted-foreground">{service?.position?.p}</p>
               <Button asChild size="lg" className="mt-8 group">
                 <Link href="/contacto">
-                  {service.position.button}
+                  {service?.position?.button || 'Saber más'}
                   <MoveRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
               </Button>
             </div>
             <div>
-              <Image src={PlaceHolderImages.find(p => p.id === 'argentina-map')?.imageUrl || ''} alt={service.position.h3} width={600} height={400} className="rounded-2xl" data-ai-hint="argentina map" />
+              <Image src={PlaceHolderImages.find(p => p.id === 'argentina-map')?.imageUrl || ''} alt={service?.position?.h3 || ''} width={600} height={400} className="rounded-2xl" data-ai-hint="argentina map" />
             </div>
           </div>
         </div>
@@ -218,13 +219,13 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
 
       {/* FAQs */}
       <section className="py-20 md:py-24">
-        <FaqSchema faqs={service.faqs} />
+        <FaqSchema faqs={service?.faqs || []} />
         <div className="container max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h4 className="font-headline text-3xl md:text-4xl font-bold">Preguntas Frecuentes sobre {service.title}</h4>
+            <h4 className="font-headline text-3xl md:text-4xl font-bold">Preguntas Frecuentes sobre {service?.title}</h4>
           </div>
           <Accordion type="single" collapsible className="w-full">
-            {service.faqs.map((faq, index) => (
+            {service?.faqs?.map((faq, index) => (
               <AccordionItem value={`item-${index}`} key={index} className="mb-2">
                 <AccordionTrigger className="text-left font-semibold text-lg p-4 bg-muted/30 rounded-lg hover:no-underline">
                   {faq.question}
