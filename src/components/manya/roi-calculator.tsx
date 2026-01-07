@@ -13,6 +13,9 @@ import { Separator } from '@/components/ui/separator';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { AlertCircle, ArrowRight, Calculator, Check, ChevronsRight, Loader2, PartyPopper } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+
 
 const calculatorSchema = z.object({
     investment: z.coerce.number().min(1, 'La inversión debe ser mayor a 0.'),
@@ -69,12 +72,12 @@ export function RoiCalculator() {
 
     const handleCalculation: SubmitHandler<CalculatorValues> = (data) => {
         setIsCalculating(true);
-        
+
         const revenue = data.avgTicket * data.sales;
         const grossProfit = revenue * (data.margin / 100);
         const netProfit = grossProfit - data.investment;
         const roi = (netProfit / data.investment) * 100;
-        
+
         // Simulación de potencial
         const potentialRoi = roi * 1.8 + 80;
         const potentialNetProfit = data.investment * (potentialRoi / 100);
@@ -91,19 +94,34 @@ export function RoiCalculator() {
             setIsCalculating(false);
         }, 800);
     };
-    
+
     const handleLeadSubmit: SubmitHandler<LeadValues> = async (data) => {
         setIsSubmittingLead(true);
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        setIsSubmittingLead(false);
-        
-        toast({
-            title: '¡Plan en camino!',
-            description: `Gracias, ${data.name}. En breve recibirás tu plan personalizado.`,
-        });
-        leadForm.reset();
-        setResult(null);
-        calculatorForm.reset();
+        try {
+            await addDoc(collection(db, 'calculator_leads'), {
+                ...data,
+                calculatorData: calculatorForm.getValues(),
+                roiResults: result,
+                createdAt: serverTimestamp(),
+            });
+
+            toast({
+                title: '¡Plan en camino!',
+                description: `Gracias, ${data.name}. En breve recibirás tu plan personalizado.`,
+            });
+            leadForm.reset();
+            setResult(null);
+            calculatorForm.reset();
+        } catch (error) {
+            console.error('Error adding document: ', error);
+            toast({
+                title: 'Error',
+                variant: 'destructive',
+                description: 'Hubo un problema al enviar tus datos. Por favor intentá de nuevo.',
+            });
+        } finally {
+            setIsSubmittingLead(false);
+        }
     };
 
     return (
@@ -133,7 +151,7 @@ export function RoiCalculator() {
                             <FormItem>
                                 <FormLabel>¿Cuál es tu ticket promedio?</FormLabel>
                                 <FormControl>
-                                     <div className="relative">
+                                    <div className="relative">
                                         <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
                                         <Input type="number" placeholder="25000" className="pl-6" {...field} />
                                     </div>
@@ -148,7 +166,7 @@ export function RoiCalculator() {
                                 <FormMessage />
                             </FormItem>
                         )} />
-                         <FormField control={calculatorForm.control} name="margin" render={({ field }) => (
+                        <FormField control={calculatorForm.control} name="margin" render={({ field }) => (
                             <FormItem>
                                 <FormLabel>¿Qué margen de ganancia tenés?</FormLabel>
                                 <FormControl>
@@ -161,7 +179,7 @@ export function RoiCalculator() {
                             </FormItem>
                         )} />
                         <div className="md:col-span-2">
-                             <Button type="submit" className="w-full font-bold group" size="lg" disabled={isCalculating}>
+                            <Button type="submit" className="w-full font-bold group" size="lg" disabled={isCalculating}>
                                 {isCalculating ? <><Loader2 className="animate-spin" /> Calculando...</> : <>Calcular mi ROI <ChevronsRight className="transition-transform group-hover:translate-x-1" /></>}
                             </Button>
                         </div>
@@ -169,91 +187,91 @@ export function RoiCalculator() {
                 </Form>
 
                 <AnimatePresence>
-                {isCalculating && (
-                    <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="text-center py-8">
-                        <Loader2 className="h-8 w-8 text-primary animate-spin mx-auto" />
-                        <p className="mt-4 text-muted-foreground">Analizando tus números...</p>
-                    </motion.div>
-                )}
-                {result && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <Separator className="my-8" />
-                        <h3 className="text-center font-headline text-lg font-bold text-foreground">RESULTADO DE TU ANÁLISIS</h3>
-                        
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                            <Card className="bg-muted/30">
-                                <CardContent className="p-4">
-                                    <p className="text-sm text-muted-foreground">📊 Tu ROI actual</p>
-                                    <p className="text-3xl font-bold text-primary">{result.roi.toFixed(0)}%</p>
-                                </CardContent>
-                            </Card>
-                             <Card className="bg-muted/30">
-                                <CardContent className="p-4">
-                                    <p className="text-sm text-muted-foreground">💵 Ganancia Neta Mensual</p>
-                                    <p className="text-3xl font-bold text-primary">{formatCurrency(result.monthlyProfit)}</p>
-                                </CardContent>
-                            </Card>
-                            <Card className="bg-accent/10 border-accent/30">
-                                <CardContent className="p-4">
-                                    <p className="text-sm text-accent">📈 Potencial con optimización</p>
-                                    <p className="text-3xl font-bold text-accent">{result.potentialRoi.toFixed(0)}%</p>
-                                </CardContent>
-                            </Card>
-                             <Card className="bg-accent/10 border-accent/30">
-                                <CardContent className="p-4">
-                                    <p className="text-sm text-accent">💰 Podrías ganar (extra)</p>
-                                    <p className="text-3xl font-bold text-accent">{formatCurrency(result.moneyLeft)}</p>
-                                </CardContent>
-                            </Card>
-                        </div>
+                    {isCalculating && (
+                        <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="text-center py-8">
+                            <Loader2 className="h-8 w-8 text-primary animate-spin mx-auto" />
+                            <p className="mt-4 text-muted-foreground">Analizando tus números...</p>
+                        </motion.div>
+                    )}
+                    {result && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <Separator className="my-8" />
+                            <h3 className="text-center font-headline text-lg font-bold text-foreground">RESULTADO DE TU ANÁLISIS</h3>
 
-                        {result.moneyLeft > 0 && (
-                            <div className="mt-6 p-4 rounded-lg bg-destructive/10 border border-destructive/30 text-destructive flex items-center gap-4">
-                                <AlertCircle className="h-8 w-8 flex-shrink-0" />
-                                <div>
-                                    <p className="font-bold">¡Atención! Estás dejando de ganar {formatCurrency(result.moneyLeft)} por mes.</p>
-                                    <p className="text-sm">Tu estrategia actual tiene un gran potencial de mejora.</p>
-                                </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                                <Card className="bg-muted/30">
+                                    <CardContent className="p-4">
+                                        <p className="text-sm text-muted-foreground">📊 Tu ROI actual</p>
+                                        <p className="text-3xl font-bold text-primary">{result.roi.toFixed(0)}%</p>
+                                    </CardContent>
+                                </Card>
+                                <Card className="bg-muted/30">
+                                    <CardContent className="p-4">
+                                        <p className="text-sm text-muted-foreground">💵 Ganancia Neta Mensual</p>
+                                        <p className="text-3xl font-bold text-primary">{formatCurrency(result.monthlyProfit)}</p>
+                                    </CardContent>
+                                </Card>
+                                <Card className="bg-accent/10 border-accent/30">
+                                    <CardContent className="p-4">
+                                        <p className="text-sm text-accent">📈 Potencial con optimización</p>
+                                        <p className="text-3xl font-bold text-accent">{result.potentialRoi.toFixed(0)}%</p>
+                                    </CardContent>
+                                </Card>
+                                <Card className="bg-accent/10 border-accent/30">
+                                    <CardContent className="p-4">
+                                        <p className="text-sm text-accent">💰 Podrías ganar (extra)</p>
+                                        <p className="text-3xl font-bold text-accent">{formatCurrency(result.moneyLeft)}</p>
+                                    </CardContent>
+                                </Card>
                             </div>
-                        )}
 
-                        <div className="text-center mt-8 p-6 bg-muted/30 rounded-lg">
-                            <h4 className="font-headline text-xl font-bold text-foreground">¿Querés mejorar estos números?</h4>
-                            <p className="mt-2 text-muted-foreground">👇 Dejanos tus datos y te mandamos un plan personalizado <span className="font-bold text-primary">GRATIS</span>.</p>
-                            
-                            <Form {...leadForm}>
-                                <form onSubmit={leadForm.handleSubmit(handleLeadSubmit)} className="mt-6 max-w-lg mx-auto space-y-4">
-                                     <FormField control={leadForm.control} name="email" render={({ field }) => (
-                                        <FormItem>
-                                            <FormControl><Input placeholder="Tu Email*" {...field} /></FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )} />
-                                     <FormField control={leadForm.control} name="name" render={({ field }) => (
-                                        <FormItem>
-                                            <FormControl><Input placeholder="Tu Nombre*" {...field} /></FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )} />
-                                     <FormField control={leadForm.control} name="whatsapp" render={({ field }) => (
-                                        <FormItem>
-                                            <FormControl><Input placeholder="Tu WhatsApp (Opcional)" {...field} /></FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )} />
-                                    <Button type="submit" size="lg" className="w-full font-bold group" disabled={isSubmittingLead}>
-                                        {isSubmittingLead ? <><Loader2 className="animate-spin"/> Enviando...</> : <>Recibir mi Plan Gratis <PartyPopper className="transition-transform group-hover:scale-110" /></>}
-                                    </Button>
-                                </form>
-                            </Form>
-                        </div>
+                            {result.moneyLeft > 0 && (
+                                <div className="mt-6 p-4 rounded-lg bg-destructive/10 border border-destructive/30 text-destructive flex items-center gap-4">
+                                    <AlertCircle className="h-8 w-8 flex-shrink-0" />
+                                    <div>
+                                        <p className="font-bold">¡Atención! Estás dejando de ganar {formatCurrency(result.moneyLeft)} por mes.</p>
+                                        <p className="text-sm">Tu estrategia actual tiene un gran potencial de mejora.</p>
+                                    </div>
+                                </div>
+                            )}
 
-                    </motion.div>
-                )}
+                            <div className="text-center mt-8 p-6 bg-muted/30 rounded-lg">
+                                <h4 className="font-headline text-xl font-bold text-foreground">¿Querés mejorar estos números?</h4>
+                                <p className="mt-2 text-muted-foreground">👇 Dejanos tus datos y te mandamos un plan personalizado <span className="font-bold text-primary">GRATIS</span>.</p>
+
+                                <Form {...leadForm}>
+                                    <form onSubmit={leadForm.handleSubmit(handleLeadSubmit)} className="mt-6 max-w-lg mx-auto space-y-4">
+                                        <FormField control={leadForm.control} name="email" render={({ field }) => (
+                                            <FormItem>
+                                                <FormControl><Input placeholder="Tu Email*" {...field} /></FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )} />
+                                        <FormField control={leadForm.control} name="name" render={({ field }) => (
+                                            <FormItem>
+                                                <FormControl><Input placeholder="Tu Nombre*" {...field} /></FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )} />
+                                        <FormField control={leadForm.control} name="whatsapp" render={({ field }) => (
+                                            <FormItem>
+                                                <FormControl><Input placeholder="Tu WhatsApp (Opcional)" {...field} /></FormControl>
+                                                <FormMessage />
+                                            </FormItem>
+                                        )} />
+                                        <Button type="submit" size="lg" className="w-full font-bold group" disabled={isSubmittingLead}>
+                                            {isSubmittingLead ? <><Loader2 className="animate-spin" /> Enviando...</> : <>Recibir mi Plan Gratis <PartyPopper className="transition-transform group-hover:scale-110" /></>}
+                                        </Button>
+                                    </form>
+                                </Form>
+                            </div>
+
+                        </motion.div>
+                    )}
                 </AnimatePresence>
             </CardContent>
         </Card>

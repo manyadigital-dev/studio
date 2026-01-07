@@ -34,6 +34,9 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Loader2, Mail, MapPin, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: 'Por favor, ingresá tu nombre completo.' }),
@@ -72,14 +75,27 @@ export function ContactSection() {
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
+    try {
+      await addDoc(collection(db, 'leads'), {
+        ...data,
+        createdAt: serverTimestamp(),
+      });
 
-    toast({
-      title: '¡Mensaje Enviado!',
-      description: `Gracias por tu interés, ${data.name}. Nos vamos a poner en contacto con vos a la brevedad.`,
-    });
-    form.reset();
+      toast({
+        title: '¡Mensaje Enviado!',
+        description: `Gracias por tu interés, ${data.name}. Nos vamos a poner en contacto con vos a la brevedad.`,
+      });
+      form.reset();
+    } catch (error) {
+      console.error('Error adding document: ', error);
+      toast({
+        title: 'Error',
+        variant: 'destructive',
+        description: 'Hubo un problema al enviar tu mensaje. Por favor, intentá de nuevo más tarde.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
