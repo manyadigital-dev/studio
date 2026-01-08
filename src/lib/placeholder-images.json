@@ -109,10 +109,106 @@
       "imageHint": "automation workflow"
     },
     {
-      "id": "argentina-map",
-      "description": "Mapa de Argentina con marcadores",
-      "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/028/628/685/small/artificial-intelligence-illustration-png.png",
-      "imageHint": "argentina map"
+      "id": "position-map",
+      "description": "Mapa de Argentina con conexiones digitales",
+      "imageUrl": "/images/services/position-map.png",
+      "imageHint": "argentina map digital"
+    },
+    {
+      "id": "seo-help",
+      "description": "Equipo SEO trabajando",
+      "imageUrl": "/images/services/seo-help.png",
+      "imageHint": "seo team"
+    },
+    {
+      "id": "seo-factors",
+      "description": "Análisis de factores SEO",
+      "imageUrl": "/images/services/seo-factors.png",
+      "imageHint": "seo audit"
+    },
+    {
+      "id": "web-help",
+      "description": "Diseñador Web trabajando",
+      "imageUrl": "/images/services/web-help.png",
+      "imageHint": "web designer"
+    },
+    {
+      "id": "web-factors",
+      "description": "Wireframes de diseño web",
+      "imageUrl": "/images/services/web-factors.png",
+      "imageHint": "web wireframes"
+    },
+    {
+      "id": "web-position",
+      "description": "Laptop con web moderna",
+      "imageUrl": "/images/services/web-position.png",
+      "imageHint": "web position"
+    },
+    {
+      "id": "social-help",
+      "description": "Creador de contenido grabando",
+      "imageUrl": "/images/services/social-help.png",
+      "imageHint": "content creator"
+    },
+    {
+      "id": "social-factors",
+      "description": "Celular con métricas sociales",
+      "imageUrl": "/images/services/social-factors.png",
+      "imageHint": "social analytics"
+    },
+    {
+      "id": "social-position",
+      "description": "Grupo de gente con celulares",
+      "imageUrl": "/images/services/social-position.png",
+      "imageHint": "social group"
+    },
+    {
+      "id": "performance-help",
+      "description": "Equipo analizando ads",
+      "imageUrl": "/images/services/performance-help.png",
+      "imageHint": "ads team"
+    },
+    {
+      "id": "performance-factors",
+      "description": "Tablet con gráfico de ROI",
+      "imageUrl": "/images/services/performance-factors.png",
+      "imageHint": "roi chart"
+    },
+    {
+      "id": "performance-position",
+      "description": "Presentación de negocios exitosa",
+      "imageUrl": "/images/services/performance-position.png",
+      "imageHint": "business presentation"
+    },
+    {
+      "id": "crm-help",
+      "description": "Equipo de ventas colaborando",
+      "imageUrl": "/images/services/crm-help.png",
+      "imageHint": "sales team"
+    },
+    {
+      "id": "crm-factors",
+      "description": "Pipeline de CRM en pantalla",
+      "imageUrl": "/images/services/crm-factors.png",
+      "imageHint": "crm pipeline"
+    },
+    {
+      "id": "crm-position",
+      "description": "Apretón de manos de negocios",
+      "imageUrl": "/images/services/crm-position.png",
+      "imageHint": "handshake"
+    },
+    {
+      "id": "automation-help",
+      "description": "Concepto de automatización digital",
+      "imageUrl": "/images/services/automation-help.png",
+      "imageHint": "automation concept"
+    },
+    {
+      "id": "automation-factors",
+      "description": "Persona relajada con automatización",
+      "imageUrl": "/images/services/automation-factors.png",
+      "imageHint": "freedom automation"
     }
   ]
 }

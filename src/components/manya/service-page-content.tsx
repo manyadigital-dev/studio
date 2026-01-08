@@ -163,7 +163,7 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
               </ul>
             </div>
             <div>
-              <Image src={PlaceHolderImages.find(p => p.id === 'service-web')?.imageUrl || ''} alt={service?.howWeHelp?.h3 || ''} width={600} height={400} className="rounded-2xl shadow-xl" data-ai-hint="digital strategy" />
+              <Image src={PlaceHolderImages.find(p => p.id === (service.images?.help || 'service-web'))?.imageUrl || ''} alt={service?.howWeHelp?.h3 || ''} width={600} height={400} className="rounded-2xl shadow-xl" data-ai-hint="digital strategy" />
             </div>
           </div>
         </div>
@@ -174,7 +174,7 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1">
-              <Image src={PlaceHolderImages.find(p => p.id === 'service-seo')?.imageUrl || ''} alt={service?.factors?.h3 || ''} width={600} height={400} className="rounded-2xl shadow-xl" data-ai-hint="analytics dashboard" />
+              <Image src={PlaceHolderImages.find(p => p.id === (service.images?.factors || 'service-seo'))?.imageUrl || ''} alt={service?.factors?.h3 || ''} width={600} height={400} className="rounded-2xl shadow-xl" data-ai-hint="analytics dashboard" />
             </div>
             <div className="order-1 md:order-2">
               <h3 className="font-headline text-3xl md:text-4xl font-bold">{service?.factors?.h3}</h3>
@@ -233,7 +233,7 @@ export function ServicePageContent({ service }: { service: ServiceDetail }) {
               </Button>
             </div>
             <div>
-              <Image src={PlaceHolderImages.find(p => p.id === 'argentina-map')?.imageUrl || ''} alt={service?.position?.h3 || ''} width={600} height={400} className="rounded-2xl" data-ai-hint="argentina map" />
+              <Image src={PlaceHolderImages.find(p => p.id === (service.images?.position || 'position-map'))?.imageUrl || ''} alt={service?.position?.h3 || ''} width={600} height={400} className="rounded-2xl" data-ai-hint="argentina map" />
             </div>
           </div>
         </div>

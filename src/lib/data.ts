@@ -261,6 +261,11 @@ export const serviceDetails = [
   {
     slug: 'seo',
     title: 'SEO',
+    images: {
+      help: 'seo-help',
+      factors: 'seo-factors',
+      position: 'position-map',
+    },
     meta: {
       title: 'Agencia SEO en Argentina | MANYA Digital',
       description: 'Potenciá tu visibilidad online con nuestra agencia de SEO. Estrategias de posicionamiento web y SEO local para dominar los rankings en Argentina.',
@@ -339,6 +344,11 @@ export const serviceDetails = [
   {
     slug: 'diseno-web',
     title: 'Diseño Web',
+    images: {
+      help: 'web-help',
+      factors: 'web-factors',
+      position: 'web-position',
+    },
     meta: {
       title: 'Agencia de Diseño Web en Argentina | MANYA Digital',
       description: 'Creamos páginas web que venden. Nuestra agencia de diseño web en Argentina se especializa en sitios optimizados para la conversión y la experiencia de usuario (UX).',
@@ -417,6 +427,11 @@ export const serviceDetails = [
   {
     slug: 'gestion-rrss',
     title: 'Gestión de RRSS',
+    images: {
+      help: 'social-help',
+      factors: 'social-factors',
+      position: 'social-position',
+    },
     meta: {
       title: 'Agencia de Redes Sociales en Argentina | MANYA Digital',
       description: 'Servicios de Community Manager y gestión de redes sociales. Creamos contenido, gestionamos comunidades y potenciamos tu marca en Instagram, Facebook, TikTok y más.',
@@ -495,6 +510,11 @@ export const serviceDetails = [
   {
     slug: 'performance-marketing',
     title: 'Performance Marketing',
+    images: {
+      help: 'performance-help',
+      factors: 'performance-factors',
+      position: 'performance-position',
+    },
     meta: {
       title: 'Agencia de Performance Marketing en Argentina | MANYA Digital',
       description: 'Maximizá tu inversión con nuestra agencia de Performance Marketing. Expertos en campañas de Meta Ads (Facebook, Instagram) y Google Ads con foco en el ROI.',
@@ -573,6 +593,11 @@ export const serviceDetails = [
   {
     slug: 'crm',
     title: 'CRM',
+    images: {
+      help: 'crm-help',
+      factors: 'crm-factors',
+      position: 'crm-position',
+    },
     meta: {
       title: 'Implementación de CRM en Argentina | MANYA Digital',
       description: 'Expertos en implementación y automatización de CRM (HubSpot, Salesforce). Organizá tus ventas, marketing y atención al cliente para escalar tu negocio.',
@@ -651,6 +676,11 @@ export const serviceDetails = [
   {
     slug: 'automatizaciones',
     title: 'Automatizaciones',
+    images: {
+      help: 'automation-help',
+      factors: 'automation-factors',
+      position: 'position-map',
+    },
     meta: {
       title: 'Automatizaciones con IA en Argentina | MANYA Digital',
       description: 'Optimizá procesos y escalá tu negocio con nuestros servicios de automatización con IA. Expertos en Zapier, Make y desarrollo de workflows inteligentes.',
